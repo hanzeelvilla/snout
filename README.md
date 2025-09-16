@@ -2,7 +2,7 @@
 Snout is a smart collar designed to keep your pet safe and healthy. It uses a built-in GPS to track their location, a temperature sensor to monitor their well-being, and an IMU to follow their activity levels. This information is sent to a mobile app, where you can see a real-time view of your pet's whereabouts and a history of their activity. The collar's key feature is the "safe zone" alert system, which sends an instant notification to your phone if your pet ever wanders outside of a pre-set boundary.
 
 <p align="center">
-    <img src="./images/snout-logo.png" alt="Snout logo" width="300" />
+    <img src="./images/snout-logo-brown.png" alt="Snout logo"/>
 </p>
 
 ## System Architecture
