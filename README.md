@@ -12,12 +12,10 @@ Snout is a smart collar designed to keep your pet safe and healthy. It uses a bu
 This project is divided into several repositories to manage the different components of the system.
 
 ### Mobile APP
-[Snout-APP](https://github.com/hanzeelvilla/snout-app)
-Mobile application code developed with React Native.
+[Snout-APP](https://github.com/hanzeelvilla/snout-app): Mobile application code developed with React Native.
 
 ### API (Backend)
-[Snout-API](https://github.com/hanzeelvilla/snout-api)
-Node/Express server code that manages the database and communication with the mobile app.
+[Snout-API](https://github.com/hanzeelvilla/snout-api): Node/Express server code that manages the database and communication with the mobile app.
 
 ### Components
 
@@ -31,8 +29,6 @@ Node/Express server code that manages the database and communication with the mo
 |      1     |       MPU 6050       | Detect Activity Level |
 |      1     |        DS18B20       | Measure Temperature   |
 |      1     | 3.7V 3000mAh Battery |      Power Supply     |
-
-FALTA PONER LA PILA
 
 #### Software
 `WiFi.h`: Handles WiFi connectivity.
