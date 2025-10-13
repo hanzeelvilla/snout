@@ -6,6 +6,9 @@
 TinyGPSPlus gps;
 HardwareSerial gpsSerial(2);
 
+unsigned long previousMillis = 0;
+const long interval = 1000;
+
 void setup() {
   Serial.begin(115200);
 
@@ -14,18 +17,23 @@ void setup() {
 }
 
 void loop() {
-  unsigned long start = millis();
+  while(gpsSerial.available() > 0)
+    gps.encode(gpsSerial.read());
 
-  while(millis() - start < 1000) {
-    while(gpsSerial.available() > 0)
-      gps.encode(gpsSerial.read());
+  unsigned long currentMillis = millis();
 
-    if(gps.location.isUpdated()) {
+  // Read data each "interval"
+  if(currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+
+    if(gps.location.isValid()) {
       Serial.print("LAT: ");
       Serial.println(gps.location.lat(), 6);
 
       Serial.print("LNG: ");
       Serial.println(gps.location.lng(), 6);
     }
-  }
+    else
+      Serial.println("GPS without signal");
+  }    
 }
