@@ -1,16 +1,20 @@
 # LoRa RYLR998
+
 Long Range. Wireless radio frequency technology
 
 ## Pin Descriptions and Wiring
-| **RYLR998 PIN** |  **FUNCTION** | **ESP32 PIN** |
-|:---------------:|:-------------:|:-------------:|
+
+| **RYLR998 PIN** | **FUNCTION**  | **ESP32 PIN** |
+|-----------------|---------------|---------------|
 |       VDD       |  Power Supply |      3.3V     |
 |       GND       |     Ground    |      GND      |
-|       TXD       | UART Transmit |    17 (TX)    |
-|       RXD       |  UART Receive |    16 (RX)    |
+|       TXD       | UART Transmit | RX2 (GPIO 16) |
+|       RXD       |  UART Receive | TX2 (GPIO 17) |
 
 ## Received Message Format
-When the RYLR998 module receives a message, it reports it through the UART port using the following format: 
+
+When the RYLR998 module receives a message, it reports it through the UART port using the following format:
+
 `+RCV=<address>,<data_length>,<data>,<RSSI>,<SNR>`
 
 | **POSITION** |                  **DESCRIPTION**                 |
@@ -22,6 +26,7 @@ When the RYLR998 module receives a message, it reports it through the UART port 
 | SNR          | The Signal-to-Noise Ratio of the message, in dB. |
 
 ## Documentation
+
 - [REYAX](https://reyax.com/products/RYLR998)
 - [AT COMMAND MANUAL](https://reyax.com//upload/products_download/download_file/LoRa_AT_Command_RYLR998_RYLR498_EN.pdf)
 - [Cómo Usar Módulos LoRa con ESP32](https://proyectocorrecaminos.com/como-usar-modulos-lora-con-esp32/)
