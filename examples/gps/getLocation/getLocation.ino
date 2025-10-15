@@ -1,34 +1,33 @@
 #include <TinyGPS++.h>
 
-// Define the RX and TX pins for Serial 2
 #define RXD2 16
 #define TXD2 17
+#define PRINT_INTERVAL 1000
 
 #define GPS_BAUD 9600
 
-// The TinyGPS++ object
 TinyGPSPlus gps;
 
-// Create an instance of the HardwareSerial class for Serial 2
 HardwareSerial gpsSerial(2);
+unsigned long lastPrintTime = 0; 
 
 void setup() {
-  // Serial Monitor
   Serial.begin(115200);
   
-  // Start Serial 2 with the defined RX and TX pins and a baud rate of 9600
   gpsSerial.begin(GPS_BAUD, SERIAL_8N1, RXD2, TXD2);
-  Serial.println("Serial 2 started at 9600 baud rate");
+  Serial.println("GPS Initialized");
 }
 
 void loop() {
-  // This sketch displays information every time a new sentence is correctly encoded.
-  unsigned long start = millis();
-
-  while (millis() - start < 1000) {
-    while (gpsSerial.available() > 0) {
-      gps.encode(gpsSerial.read());
-    }
+  // Process incoming GPS data
+  while (gpsSerial.available() > 0) {
+    gps.encode(gpsSerial.read());
+  }
+  
+  // Check if a second has passed since the last data update
+  if (millis() - lastPrintTime >= PRINT_INTERVAL) {
+    lastPrintTime = millis(); // Reset the timer
+    
     if (gps.location.isUpdated()) {
       Serial.print("LAT: ");
       Serial.println(gps.location.lat(), 6);
@@ -45,6 +44,9 @@ void loop() {
       Serial.print("Time in UTC: ");
       Serial.println(String(gps.date.year()) + "/" + String(gps.date.month()) + "/" + String(gps.date.day()) + "," + String(gps.time.hour()) + ":" + String(gps.time.minute()) + ":" + String(gps.time.second()));
       Serial.println("");
+    }
+    else {
+      Serial.println("GPS without signal");
     }
   }
 }
