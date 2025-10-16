@@ -37,12 +37,12 @@ void setup() {
   sendMsg("AT+MODE"); // Read the mode configured
   delay(1000);
 
-  doc["id"] = "1";
+  Serial.println("Transmitter ready ✅");
 }
 
 void loop() {
-  doc["localitation"]["lat"] = random(MIN, MAX + 1);
-  doc["localitation"]["lng"] = random(MIN, MAX + 1);
+  doc["location"]["lat"] = random(MIN, MAX + 1);
+  doc["location"]["lng"] = random(MIN, MAX + 1);
 
   serializeJson(doc, jsonData);
   msgLen = String(jsonData.length());
