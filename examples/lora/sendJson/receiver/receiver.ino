@@ -124,7 +124,7 @@ void loop() {
     Serial.println(msg);
 
     parseJsonFromMsg(msg);
-  }
+  } 
 
   delay(1000);
 }
