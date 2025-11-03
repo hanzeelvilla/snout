@@ -11,4 +11,4 @@
 
 ## Documentation
 
-[ESP32 with NEO-6M GPS Module (Arduino IDE)](https://randomnerdtutorials.com/esp32-neo-6m-gps-module-arduino/)
+- [ESP32 with NEO-6M GPS Module (Arduino IDE)](https://randomnerdtutorials.com/esp32-neo-6m-gps-module-arduino/)
