@@ -10,11 +10,11 @@ MQTT operates using a simple publish/subscribe architecture:
 
 **Topic**: A label or hierarchy (like a file path, e.g., home/kitchen/temperature) that the broker uses to categorize messages and route them to interested subscribers.
 
-![MQTT Architecture](../../images/mqtt-architecture.png)
-
 - **Publisher Clients** send messages to a specific Topic.
 
 - **Subscriber Clients** express interest in a Topic to receive messages published to it.
+
+![MQTT Architecture](../../images/mqtt-architecture.png)
 
 ## Setup & Configuration
 
