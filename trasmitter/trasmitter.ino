@@ -1,9 +1,9 @@
-/* RANSMITTER */
+/* -------------------------------- LIBRARIES ------------------------------- */
 
 #include <TinyGPS++.h>
 #include <ArduinoJson.h>
 
-/* -------------------- CONFIG -------------------- */ 
+/* --------------------------------- CONFIG --------------------------------- */
 #define GPS_RX 16    
 #define GPS_TX 17    
 #define LORA_RX 26   
@@ -17,7 +17,7 @@
 
 #define PRINT_INTERVAL 3000
 
-/* -------------------- OBJECTS -------------------- */
+/* --------------------------------- OBJECTS -------------------------------- */
 TinyGPSPlus gps;
 HardwareSerial gpsSerial(2);   // UART2 for GPS
 HardwareSerial loraSerial(1);  // UART1 for LoRa
@@ -25,7 +25,7 @@ HardwareSerial loraSerial(1);  // UART1 for LoRa
 JsonDocument doc;
 unsigned long lastSend = 0;
 
-/* -------------------- FUNCTIONS -------------------- */
+/* -------------------------------- FUNCTIONS ------------------------------- */
 void sendLoraCommand(String cmd) {
   loraSerial.println(cmd);
   delay(500);
